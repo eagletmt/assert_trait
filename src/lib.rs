@@ -72,7 +72,7 @@ fn build_assert_expr(assert_expr: AssertExpr) -> syn::export::TokenStream2 {
 ///         futures::Stream<Item = tokio::time::Instant> + Unpin,
 ///         tokio::time::interval(tokio::time::Duration::from_secs(2)),
 ///     );
-///     // status() future implements Stream.
+///     // once(status()) future implements Stream.
 ///     let status = assert_trait!(
 ///         futures::Stream,
 ///         futures::stream::once(tokio::process::Command::new("true").status()),
@@ -85,7 +85,7 @@ fn build_assert_expr(assert_expr: AssertExpr) -> syn::export::TokenStream2 {
 ///
 /// tokio::runtime::Runtime::new().unwrap().block_on(async {
 ///     let status = assert_trait!(
-///         // status() future implements Stream but doesn't implement Unpin.
+///         // once(status()) future implements Stream but doesn't implement Unpin.
 ///         futures::Stream + Unpin,
 ///         futures::stream::once(tokio::process::Command::new("true").status()),
 ///     );
