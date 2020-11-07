@@ -1,2 +1,4 @@
 # assert_trait
-Assert the given expression implements the given trait
+Macro for static assert that values implements traits.
+
+See [examples](examples) directory.
